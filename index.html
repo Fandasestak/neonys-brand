@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <meta name="description" content="osobní luxury streetwear label s důrazem na custom design, prémiové materiály a minimalistickou estetiku. Limitované dropy, výrazná identita a ručně kurátorovaný styl.“" />
+    <meta name="description" content="osobní luxury streetwear label s důrazem na custom design, prémiové materiály a minimalistickou estetiku. Limitované dropy, výrazná identita a ručně kurátorovaný styl."" />
     <meta name="keywords" content="luxury streetwear brand, custom apparel, minimalist fashion, premium clothing, limited drops, Neonys.me, avant‑garde streetwear, curated fashion, high‑end design, signature clothing brand, šesty portfolio, custom obleceni, luxury" />
     <meta name="author" content="Šesty" />
     <meta name="robots" content="index, follow" />
@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://neonys.me" />
     <meta property="og:title" content="Neonys | Luxury Custom brand " />
-    <meta property="og:description" content="Osobní luxury streetwear s důrazem na custom design, prémiové materiály a minimalistickou estetiku. Limitované dropy, výrazná identita a ručně kurátorovaný styl.“" />
+    <meta property="og:description" content="Osobní luxury streetwear s důrazem na custom design, prémiové materiály a minimalistickou estetiku. Limitované dropy, výrazná identita a ručně kurátorovaný styl."" />
     <meta property="twitter:card" content="summary_large_image" />
 
     <meta name="twitter:image" content="https://raw.githubusercontent.com/Fandasestak/neonys-brand/main/webglb.png" />
@@ -29,6 +29,10 @@
 
     <link href="web.png" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Boxicons pro ikony -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <style>
         * {
             margin: 0;
@@ -97,6 +101,10 @@
             pointer-events: none;
             z-index: 10000;
             opacity: 0.5;
+        }
+        .contact-info.reveal {
+            display: flex;
+            flex-direction: column;
         }
 
         ::selection {
@@ -223,7 +231,7 @@
             gap: 1.5rem;
         }
 
-        .theme-btn {
+        .theme-btn, .lang-btn {
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -235,12 +243,24 @@
             justify-content: center;
             font-size: 1.2rem;
             transition: all 0.3s var(--ease);
+            color: var(--text-primary);
         }
 
-        .theme-btn:hover {
+        .lang-btn {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .theme-btn:hover, .lang-btn:hover {
             border-color: var(--accent);
             transform: rotate(180deg) scale(1.1);
             background: var(--accent);
+            color: var(--white);
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.1);
         }
 
         /* Hamburger Menu */
@@ -561,6 +581,12 @@
             cursor: pointer;
         }
 
+        .product-card i {
+            font-size: 4rem;
+            color: var(--text-secondary);
+            transition: all 0.4s var(--ease);
+        }
+
         .product-card::before {
             content: '';
             position: absolute;
@@ -574,6 +600,11 @@
             transform: translateY(-10px);
             border-color: var(--accent);
             box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .product-card:hover i {
+            color: var(--accent);
+            transform: scale(1.1);
         }
 
         .product-card:hover::before {
@@ -593,6 +624,7 @@
             font-weight: 600;
             transform: translateY(100%);
             transition: transform 0.4s var(--ease);
+            z-index: 2;
         }
 
         .product-card:hover .product-label {
@@ -856,10 +888,20 @@
             cursor: pointer;
         }
 
+        .gallery-item i {
+            font-size: 4rem;
+            color: var(--text-secondary);
+            transition: all 0.3s var(--ease);
+        }
+
         .gallery-item:hover {
             transform: scale(1.05);
             border-color: var(--accent);
             box-shadow: 0 15px 50px var(--shadow);
+        }
+
+        .gallery-item:hover i {
+            color: var(--accent);
         }
 
         /* Contact Section */
@@ -929,23 +971,6 @@
             font-size: 1.1rem;
         }
 
-        .contact-text a:hover {
-            color: var(--accent);
-        }
-
-        /* Contact Form */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
         .form-group label {
             font-size: 0.9rem;
             font-weight: 600;
@@ -962,7 +987,6 @@
             border: 2px solid var(--border);
             border-radius: 12px;
             color: var(--text-primary);
-            font-family: var(--font-body);
             font-size: 1.05rem;
             transition: all 0.3s;
         }
@@ -1033,7 +1057,7 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-weight: 700;
+            font-size: 1.3rem;
             transition: all 0.3s var(--ease);
         }
 
@@ -1200,6 +1224,19 @@
                 grid-template-columns: 1fr;
             }
         }
+        #contact {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        #home {
+            padding: 4rem 1.5rem;
+            margin-top: 40px;
+        }
+        .footer-container {
+            padding: 4rem 1.5rem;
+        }
     </style>
 </head>
 <body data-theme="light">
@@ -1207,19 +1244,20 @@
 <nav id="nav">
     <div class="nav-container">
         <a href="#home" class="logo-container">
-            <img src="goldweb.png" alt="Ne#nys Logo" class="logo-img">
+            <img src="goldweb.png" alt="Neonys Logo" class="logo-img">
         </a>
 
         <ul class="nav-links">
-            <li><a href="#home">Domů</a></li>
-            <li><a href="#services">Služby</a></li>
-            <li><a href="#process">Proces</a></li>
-            <li><a href="#gallery">Galerie</a></li>
-            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="#home" data-cs="Domů" data-en="Home">Domů</a></li>
+            <li><a href="#services" data-cs="Služby" data-en="Services">Služby</a></li>
+            <li><a href="#process" data-cs="Proces" data-en="Process">Proces</a></li>
+            <li><a href="#gallery" data-cs="Galerie" data-en="Gallery">Galerie</a></li>
+            <li><a href="#contact" data-cs="Kontakt" data-en="Contact">Kontakt</a></li>
         </ul>
 
         <div class="nav-right">
-            <button class="theme-btn" id="themeToggle">🌙</button>
+            <button class="lang-btn" id="langToggle">CZ</button>
+            <button class="theme-btn" id="themeToggle"><i class='bx bx-moon'></i></button>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -1232,11 +1270,11 @@
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li><a href="#home">Domů</a></li>
-        <li><a href="#services">Služby</a></li>
-        <li><a href="#process">Proces</a></li>
-        <li><a href="#gallery">Galerie</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#home" data-cs="Domů" data-en="Home">Domů</a></li>
+        <li><a href="#services" data-cs="Služby" data-en="Services">Služby</a></li>
+        <li><a href="#process" data-cs="Proces" data-en="Process">Proces</a></li>
+        <li><a href="#gallery" data-cs="Galerie" data-en="Gallery">Galerie</a></li>
+        <li><a href="#contact" data-cs="Kontakt" data-en="Contact">Kontakt</a></li>
     </ul>
 </div>
 
@@ -1245,39 +1283,39 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="badge-dot"></span>
-                Premium Fashion · Praha
+                <span data-cs="Premium Fashion · Louny" data-en="Premium Fashion · Louny">Premium Fashion · Louny</span>
             </div>
             <h1>
-                Vaše vize,<br>
-                <span class="accent">Naše mistrovství</span>
+                <span data-cs="Vaše vize," data-en="Your vision,">Vaše vize,</span><br>
+                <span class="accent" data-cs="Naše mistrovství" data-en="Our mastery">Naše mistrovství</span>
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-cs="Tvoříme jedinečné oblečení, které vypráví váš příběh. Každý steh, každý detail — promyšlený s láskou k řemeslu a oddaností k dokonalosti." data-en="We create unique clothing that tells your story. Every stitch, every detail — crafted with love for the craft and dedication to perfection.">
                 Tvoříme jedinečné oblečení, které vypráví váš příběh. Každý steh,
                 každý detail — promyšlený s láskou k řemeslu a oddaností k dokonalosti.
             </p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary"><span>Začít projekt</span></a>
-                <a href="#services" class="btn btn-secondary">Prozkoumat kolekci</a>
+                <a href="#contact" class="btn btn-primary"><span data-cs="Začít projekt" data-en="Start project">Začít projekt</span></a>
+                <a href="#services" class="btn btn-secondary" data-cs="Prozkoumat kolekci" data-en="Explore collection">Prozkoumat kolekci</a>
             </div>
         </div>
 
         <div class="hero-visual">
             <div class="product-showcase">
                 <div class="product-card">
-                    👕
-                    <div class="product-label">Custom Trika</div>
+                    <i class='bx bx-closet'></i>
+                    <div class="product-label" data-cs="Custom Trika" data-en="Custom T-shirts">Custom Trika</div>
                 </div>
                 <div class="product-card">
-                    🧥
-                    <div class="product-label">Mikiny Premium</div>
+                    <i class='bx bxs-t-shirt'></i>
+                    <div class="product-label" data-cs="Mikiny Premium" data-en="Premium Hoodies">Mikiny Premium</div>
                 </div>
                 <div class="product-card">
-                    👔
-                    <div class="product-label">Košile Tailored</div>
+                    <i class='bx bx-shopping-bag'></i>
+                    <div class="product-label" data-cs="Košile Tailored" data-en="Tailored Shirts">Košile Tailored</div>
                 </div>
                 <div class="product-card">
-                    🎽
-                    <div class="product-label">Sportovní</div>
+                    <i class='bx bx-run'></i>
+                    <div class="product-label" data-cs="Sportovní" data-en="Sportswear">Sportovní</div>
                 </div>
             </div>
         </div>
@@ -1286,9 +1324,9 @@
 
 <section id="services">
     <div class="section-header reveal">
-        <div class="section-label">Co nabízíme</div>
-        <h2 class="section-title">Naše služby</h2>
-        <p class="section-subtitle">
+        <div class="section-label" data-cs="Co nabízíme" data-en="What we offer">Co nabízíme</div>
+        <h2 class="section-title" data-cs="Naše služby" data-en="Our services">Naše služby</h2>
+        <p class="section-subtitle" data-cs="Poskytujeme komplexní servis od prvního náčrtu až po finální steh. Každý projekt je jedinečný a vytvořený přesně podle vašich představ." data-en="We provide comprehensive service from the first sketch to the final stitch. Each project is unique and created exactly according to your vision.">
             Poskytujeme komplexní servis od prvního náčrtu až po finální steh.
             Každý projekt je jedinečný a vytvořený přesně podle vašich představ.
         </p>
@@ -1298,38 +1336,38 @@
         <div class="services-grid">
             <div class="service-card reveal">
                 <span class="service-number">01</span>
-                <h3>Custom Design</h3>
-                <p>Navrhněte si oblečení přesně podle vašich představ. Náš tým designérů vytvoří unikátní kousky.</p>
+                <h3 data-cs="Přizpůsobte si potisk" data-en="Custom Printing">Přizpůsobte si potisk</h3>
+                <p data-cs="Navrhněte si oblečení přesně podle vašich představ. Náš tým designérů vytvoří unikátní kousky." data-en="Design clothing exactly according to your vision. Our team of designers will create unique pieces.">Navrhněte si oblečení přesně podle vašich představ. Náš tým designérů vytvoří unikátní kousky.</p>
             </div>
 
             <div class="service-card reveal">
                 <span class="service-number">02</span>
-                <h3>Premium Výšivky</h3>
-                <p>Precizní výšivky na jakékoliv materiály. Nejmodernější technologie pro trvalé výsledky.</p>
+                <h3 data-cs="Premium Výšivky" data-en="Premium Embroidery">Premium Výšivky</h3>
+                <p data-cs="Precizní výšivky na jakékoliv materiály. Nejmodernější technologie pro trvalé výsledky." data-en="Precise embroidery on any materials. State-of-the-art technology for lasting results.">Precizní výšivky na jakékoliv materiály. Nejmodernější technologie pro trvalé výsledky.</p>
             </div>
 
             <div class="service-card reveal">
                 <span class="service-number">03</span>
-                <h3>Firemní Kolekce</h3>
-                <p>Kompletní branding pro vaši firmu. Od návrhu loga až po finální kolekci.</p>
+                <h3 data-cs="Firemní Kolekce" data-en="Corporate Collections">Firemní Kolekce</h3>
+                <p data-cs="Kompletní branding pro vaši firmu. Od návrhu loga až po finální kolekci." data-en="Complete branding for your company. From logo design to final collection.">Kompletní branding pro vaši firmu. Od návrhu loga až po finální kolekci.</p>
             </div>
 
             <div class="service-card reveal">
                 <span class="service-number">04</span>
-                <h3>Šití na míru</h3>
-                <p>Oblečení šité přesně podle vašich rozměrů pro dokonalé padnutí.</p>
+                <h3 data-cs="Šití na míru" data-en="Tailored Sewing">Šití na míru</h3>
+                <p data-cs="Oblečení šité přesně podle vašich rozměrů pro dokonalé padnutí." data-en="Clothing sewn precisely to your measurements for a perfect fit.">Oblečení šité přesně podle vašich rozměrů pro dokonalé padnutí.</p>
             </div>
 
             <div class="service-card reveal">
                 <span class="service-number">05</span>
-                <h3>Luxusní Materiály</h3>
-                <p>Pracujeme pouze s nejkvalitnějšími látkami od ověřených dodavatelů.</p>
+                <h3 data-cs="Luxusní Materiály" data-en="Luxury Materials">Luxusní Materiály</h3>
+                <p data-cs="Pracujeme pouze s nejkvalitnějšími látkami od ověřených dodavatelů." data-en="We work only with the highest quality fabrics from verified suppliers.">Pracujeme pouze s nejkvalitnějšími látkami od ověřených dodavatelů.</p>
             </div>
 
             <div class="service-card reveal">
                 <span class="service-number">06</span>
-                <h3>Expresní Výroba</h3>
-                <p>Standardní doba 7-14 dní. Expresní možnost do 3 dnů.</p>
+                <h3 data-cs="Expresní Výroba" data-en="Express Production">Expresní Výroba</h3>
+                <p data-cs="Standardní doba 7-14 dní. Expresní možnost do 3 dnů." data-en="Standard time 7-14 days. Express option within 3 days.">Standardní doba 7-14 dní. Expresní možnost do 3 dnů.</p>
             </div>
         </div>
     </div>
@@ -1337,9 +1375,9 @@
 
 <section id="process">
     <div class="section-header reveal">
-        <div class="section-label">Jak to funguje</div>
-        <h2 class="section-title">Náš proces</h2>
-        <p class="section-subtitle">
+        <div class="section-label" data-cs="Jak to funguje" data-en="How it works">Jak to funguje</div>
+        <h2 class="section-title" data-cs="Náš proces" data-en="Our process">Náš proces</h2>
+        <p class="section-subtitle" data-cs="Od prvního kontaktu po doručení — každý krok je pečlivě promyšlený a personalizovaný podle vašich potřeb." data-en="From the first contact to delivery — each step is carefully thought out and personalized to your needs.">
             Od prvního kontaktu po doručení — každý krok je pečlivě
             promyšlený a personalizovaný podle vašich potřeb.
         </p>
@@ -1350,40 +1388,40 @@
             <div class="timeline-item reveal">
                 <div class="timeline-dot">1</div>
                 <div class="timeline-content">
-                    <h3>Konzultace & Design</h3>
-                    <p>Společně prodiskutujeme vaše představy. Designéři vytvoří návrh a pošlou vizualizaci.</p>
+                    <h3 data-cs="Konzultace & Design" data-en="Consultation & Design">Konzultace & Design</h3>
+                    <p data-cs="Společně prodiskutujeme vaše představy. Designéři vytvoří návrh a pošlou vizualizaci." data-en="Together we will discuss your ideas. Designers will create a proposal and send a visualization.">Společně prodiskutujeme vaše představy. Designéři vytvoří návrh a pošlou vizualizaci.</p>
                 </div>
             </div>
 
             <div class="timeline-item reveal">
                 <div class="timeline-dot">2</div>
                 <div class="timeline-content">
-                    <h3>Výběr Materiálů</h3>
-                    <p>Pomůžeme vám vybrat ideální materiály. Vzorky zasíláme zdarma.</p>
+                    <h3 data-cs="Výběr Materiálů" data-en="Material Selection">Výběr Materiálů</h3>
+                    <p data-cs="Pomůžeme vám vybrat ideální materiály. Vzorky zasíláme zdarma." data-en="We will help you choose the ideal materials. We send samples for free.">Pomůžeme vám vybrat ideální materiály. Vzorky zasíláme zdarma.</p>
                 </div>
             </div>
 
             <div class="timeline-item reveal">
                 <div class="timeline-dot">3</div>
                 <div class="timeline-content">
-                    <h3>Výroba</h3>
-                    <p>Zkušení krejčí začnou pracovat. Sledujte pokrok online.</p>
+                    <h3 data-cs="Výroba" data-en="Production">Výroba</h3>
+                    <p data-cs="Zkušení krejčí začnou pracovat. Sledujte pokrok online." data-en="Experienced tailors start working. Track progress online.">Zkušení krejčí začnou pracovat. Sledujte pokrok online.</p>
                 </div>
             </div>
 
             <div class="timeline-item reveal">
                 <div class="timeline-dot">4</div>
                 <div class="timeline-content">
-                    <h3>Kontrola Kvality</h3>
-                    <p>Každý kus prochází přísnou kontrolou všech detailů.</p>
+                    <h3 data-cs="Kontrola Kvality" data-en="Quality Control">Kontrola Kvality</h3>
+                    <p data-cs="Každý kus prochází přísnou kontrolou všech detailů." data-en="Each piece undergoes strict control of all details.">Každý kus prochází přísnou kontrolou všech detailů.</p>
                 </div>
             </div>
 
             <div class="timeline-item reveal">
                 <div class="timeline-dot">5</div>
                 <div class="timeline-content">
-                    <h3>Dodání & Podpora</h3>
-                    <p>Prémiové balení. 30denní záruka a úpravy zdarma.</p>
+                    <h3 data-cs="Dodání & Podpora" data-en="Delivery & Support">Dodání & Podpora</h3>
+                    <p data-cs="Prémiové balení. 30denní záruka a úpravy zdarma." data-en="Premium packaging. 30-day warranty and free adjustments.">Prémiové balení. 30denní záruka a úpravy zdarma.</p>
                 </div>
             </div>
         </div>
@@ -1392,100 +1430,64 @@
 
 <section id="gallery">
     <div class="section-header reveal">
-        <div class="section-label">Inspirace</div>
-        <h2 class="section-title">Naše práce</h2>
+        <div class="section-label" data-cs="Inspirace" data-en="Inspiration">Inspirace</div>
+        <h2 class="section-title" data-cs="Naše práce" data-en="Our work">Naše práce</h2>
     </div>
 
     <div class="gallery-wrapper">
         <div class="gallery-track">
-            <div class="gallery-item">👕</div>
-            <div class="gallery-item">🧥</div>
-            <div class="gallery-item">👔</div>
-            <div class="gallery-item">🎽</div>
-            <div class="gallery-item">🧢</div>
-            <div class="gallery-item">👗</div>
-            <div class="gallery-item">👚</div>
-            <div class="gallery-item">🧣</div>
-            <div class="gallery-item">👕</div>
-            <div class="gallery-item">🧥</div>
-            <div class="gallery-item">👔</div>
-            <div class="gallery-item">🎽</div>
-            <div class="gallery-item">🧢</div>
-            <div class="gallery-item">👗</div>
-            <div class="gallery-item">👚</div>
-            <div class="gallery-item">🧣</div>
+            <div class="gallery-item"><i class='bx bxs-t-shirt'></i></div>
+            <div class="gallery-item"><i class='bx bx-closet'></i></div>
+            <div class="gallery-item"><i class='bx bx-shopping-bag'></i></div>
+            <div class="gallery-item"><i class='bx bx-run'></i></div>
+            <div class="gallery-item"><i class='bx bxs-hat'></i></div>
+            <div class="gallery-item"><i class='bx bx-user'></i></div>
+            <div class="gallery-item"><i class='bx bx-briefcase'></i></div>
+            <div class="gallery-item"><i class='bx bx-medal'></i></div>
+            <div class="gallery-item"><i class='bx bxs-t-shirt'></i></div>
+            <div class="gallery-item"><i class='bx bx-closet'></i></div>
+            <div class="gallery-item"><i class='bx bx-shopping-bag'></i></div>
+            <div class="gallery-item"><i class='bx bx-run'></i></div>
+            <div class="gallery-item"><i class='bx bxs-hat'></i></div>
+            <div class="gallery-item"><i class='bx bx-user'></i></div>
+            <div class="gallery-item"><i class='bx bx-briefcase'></i></div>
+            <div class="gallery-item"><i class='bx bx-medal'></i></div>
         </div>
     </div>
 </section>
 
 <section id="contact">
     <div class="section-header reveal">
-        <div class="section-label">Kontakt</div>
-        <h2 class="section-title">Pojďme spolupracovat</h2>
-        <p class="section-subtitle">
+        <div class="section-label" data-cs="Kontakt" data-en="Contact">Kontakt</div>
+        <h2 class="section-title" data-cs="Pojďme spolupracovat" data-en="Let's work together">Pojďme spolupracovat</h2>
+        <p class="section-subtitle" data-cs="Máte projekt na mysli? Napíšte nám — rádi pomůžeme od návrhu po produkt." data-en="Have a project in mind? Write to us — we'll be happy to help from design to product.">
             Máte projekt na mysli? Napíšte nám — rádi pomůžeme od návrhu po produkt.
         </p>
     </div>
 
     <div class="contact-container">
         <div class="contact-info reveal">
-            <h3>Kontaktujte nás</h3>
-            <p>Jsme tu pro vás každý den. Rádi pomůžeme s návrhem nebo připravíme cenovou nabídku.</p>
-
             <div class="contact-item">
-                <div class="contact-icon">✉️</div>
+                <div class="contact-icon"><i class='bx bx-envelope'></i></div>
                 <div class="contact-text">
-                    <small>Email</small>
-                    <a href="mailto:frantisek.sestak@tutamail.com">frantisek.sestak@tutamail.com</a>
+                    <a href="mailto:Jaroslav.kozisek93@seznam.cz">Jaroslav.kozisek93@seznam.cz</a>
                 </div>
             </div>
 
             <div class="contact-item">
-                <div class="contact-icon">📞</div>
+                <div class="contact-icon"><i class='bx bx-phone'></i></div>
                 <div class="contact-text">
-                    <small>Telefon</small>
-                    <a href="tel:+420123456789">+420 123 456 789</a>
+                    <a href="tel:+420731225565">+420 731 225 565</a>
                 </div>
             </div>
 
             <div class="contact-item">
-                <div class="contact-icon">📍</div>
+                <div class="contact-icon"><i class='bx bx-map'></i></div>
                 <div class="contact-text">
-                    <small>Adresa</small>
-                    <span>Praha 1, Václavské náměstí 1</span>
+                    <span>Vrbka, 48 Louny u Postoloprt, 44001</span>
                 </div>
             </div>
         </div>
-
-        <form class="contact-form reveal" id="contactForm">
-            <div class="form-group">
-                <label>Jméno</label>
-                <input type="text" id="name" required placeholder="Vaše jméno">
-            </div>
-
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="email" required placeholder="vas@email.cz">
-            </div>
-
-            <div class="form-group">
-                <label>Typ projektu</label>
-                <select id="project">
-                    <option>Custom Design</option>
-                    <option>Firemní kolekce</option>
-                    <option>Výšivky</option>
-                    <option>Šití na míru</option>
-                    <option>Jiné</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Zpráva</label>
-                <textarea id="message" required placeholder="Popíšte váš projekt..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary"><span>Odeslat poptávku</span></button>
-        </form>
     </div>
 </section>
 
@@ -1494,48 +1496,65 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#home" class="logo-container">
-                    <img src="goldweb.png" alt="Ne#nys Logo" class="logo-img">
+                    <img src="goldweb.png" alt="Neonys Logo" class="logo-img">
                 </a>
-                <p>Měníme vize v realitu. Specializujeme se na prémiové šití na míru a unikátní design, který vás odliší.</p>
+                <p data-cs="Měníme vize v realitu. Specializujeme se na prémiové šití na míru a unikátní design, který vás odliší." data-en="Turning visions into reality. We specialize in premium tailoring and unique design that sets you apart.">Měníme vize v realitu. Specializujeme se na prémiové šití na míru a unikátní design, který vás odliší.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link">FB</a>
-                    <a href="#" class="social-link">IG</a>
-                    <a href="#" class="social-link">LN</a>
+                    <a href="#" class="social-link" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://www.instagram.com/_itzz_kozich_93?igsh=MXFmMjc3bW4zM3hs" class="social-link" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" class="social-link" aria-label="Snapchat"><i class='bx bxl-snapchat'></i></a>
                 </div>
-            </div>
-
-            <div class="footer-links">
-                <h4>Rychlé odkazy</h4>
-                <ul>
-                    <li><a href="#process">Náš proces</a></li>
-                    <li><a href="#gallery">Galerie prací</a></li>
-                    <li><a href="#contact">Kontaktujte nás</a></li>
-                    <li><a href="#">Obchodní podmínky</a></li>
-                </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <span>© 2026 Neonys. Všechna práva vyhrazena.</span>
+            <span data-cs="© 2026 Neonys. Všechna práva vyhrazena." data-en="© 2026 Neonys. All rights reserved.">© 2026 Neonys. Všechna práva vyhrazena.</span>
             <span><a href="http://sesty.dev">Design & Development by Šesty</a></span>
         </div>
     </div>
 </footer>
 
 <script>
+    // Language Toggle
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = localStorage.getItem('language') || 'cs';
+
+    // Set initial language
+    updateLanguage(currentLang);
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'cs' ? 'en' : 'cs';
+        localStorage.setItem('language', currentLang);
+        updateLanguage(currentLang);
+    });
+
+    function updateLanguage(lang) {
+        langToggle.textContent = lang.toUpperCase();
+        document.documentElement.lang = lang;
+
+        // Update all elements with translations
+        document.querySelectorAll('[data-cs][data-en]').forEach(element => {
+            if (lang === 'cs') {
+                element.textContent = element.getAttribute('data-cs');
+            } else {
+                element.textContent = element.getAttribute('data-en');
+            }
+        });
+    }
+
     // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
 
     let theme = localStorage.getItem('theme') || 'light';
     document.body.setAttribute('data-theme', theme);
-    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    themeToggle.innerHTML = theme === 'dark' ? '<i class="bx bx-sun"></i>' : '<i class="bx bx-moon"></i>';
 
     themeToggle.addEventListener('click', () => {
         theme = theme === 'light' ? 'dark' : 'light';
         document.body.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        themeToggle.innerHTML = theme === 'dark' ? '<i class="bx bx-sun"></i>' : '<i class="bx bx-moon"></i>';
     });
 
     // Hamburger Menu
@@ -1610,27 +1629,6 @@
                 });
             }
         });
-    });
-
-    // Form Submit
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const project = document.getElementById('project').value;
-        const message = document.getElementById('message').value;
-
-        const subject = encodeURIComponent(`Ne#nys — ${project}`);
-        const body = encodeURIComponent(
-            `Jméno: ${name}\nEmail: ${email}\nProjekt: ${project}\n\nZpráva:\n${message}`
-        );
-
-        window.location.href = `mailto:frantisek.sestak@tutamail.com?subject=${subject}&body=${body}`;
-
-        alert('Email klient otevřen!');
-        contactForm.reset();
     });
 </script>
 
